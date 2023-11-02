@@ -1,0 +1,401 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+      :root{
+          --Playfair: 'Playfair Display', serif;
+          --Quicksand: 'Quicksand', sans-serif;
+          --Roboto: 'Roboto', sans-serif;
+          --dark: #3c393d;
+          --exDark: #2b2b2b;
+      }
+      *{
+          padding: 0;
+          margin: 0;
+          font-family: var(--Quicksand);
+      }
+      body{
+        line-height: 1.4;
+          background-image: url("{% static 'makanan.jpg'%}");
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+      }
+      img{
+          width: 100%;
+          display: block;
+      }
+      .container{
+          max-width: 1320px;
+          margin: 0 auto;
+          padding: 0 1.2rem;
+      }
+      p{
+        color: yellow;
+      }
+
+      /* header */
+      header{
+          min-height: 100vh;
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/banner-bg.jpg) center/cover no-repeat fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: stretch;
+      }
+      .navbar{
+          background: rgba(0, 0, 0, 0.6);
+          padding: 1.2rem;
+      }
+      .navbar-brand{
+          color: #fff;
+          font-size: 2rem;
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          font-family: var(--Playfair);
+          letter-spacing: 1px;
+      }
+      .navbar-nav{
+          padding: 0.8rem 0 0.2rem 0;
+          text-align: center;
+      }
+      .navbar-nav a{
+          text-transform: uppercase;
+          font-family: var(--Roboto);
+          letter-spacing: 1px;
+          font-weight: 500;
+          color: #fff;
+          text-decoration: none;
+          display: inline-block;
+          padding: 0.4rem 0.1rem;
+          letter-spacing: 3px;
+          transition: opacity 0.5s ease;
+      }
+      .navbar-nav a:hover{
+          opacity: 0.7;
+      }
+      .banner{
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: #fff;
+      }
+      .banner-title{
+          font-size: 3rem;
+          font-family: var(--Playfair);
+          line-height: 1.2;
+          color: red;
+      }
+      .banner-title span{
+          font-family: var(--Playfair);
+          color: white;
+      }
+      .banner p{
+          padding: 1rem 0 2rem 0;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          font-family: var(--Roboto);
+          font-weight: 300;
+          word-spacing: 2px;
+      }
+      .banner form{
+          background: #fff;
+          border-radius: 2rem;
+          padding: 0.6rem 1rem;
+          display: flex;
+          justify-content: space-between;
+      }
+      .search-input{
+          font-family: var(--Roboto);
+          font-size: 1.1rem;
+          width: 100%;
+          outline: 0;
+          padding: 0.6rem 0;
+          border: none;
+      }
+      .search-input::placeholder{
+          text-transform: capitalize;
+      }
+      .search-btn{
+          width: 40px;
+          font-size: 1.1rem;
+          color: var(--dark);
+          border: none;
+          background: transparent;
+          outline: 0;
+          cursor: pointer;
+      }
+      
+      /* footer */
+      footer{
+          background: var(--exDark);
+          color: #fff;
+          text-align: center;
+          padding: 2rem 0;
+      }
+      .social-links{
+          display: flex;
+          justify-content: center;
+          margin-bottom: 1.4rem;
+      }
+      .social-links a{
+          border: 2px solid #fff;
+          color: #fff;
+          display: block;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          text-decoration: none;
+          margin: 0 0.3rem;
+          transition: all 0.5s ease;
+      }
+      
+      .social-links a:hover{
+          background: #fff;
+          color: var(--exDark);
+      }
+      .footer span{
+          margin-top: 1rem;
+          display: block;
+          font-family: var(--Playfair);
+          letter-spacing: 2px;
+      }
+      
+      /* Media Queries */
+      @media screen and (min-width: 540px){
+          .navbar-nav a{
+              padding-right: 1.2rem;
+              padding-left: 1.2rem;
+          }
+          .banner-title{
+              font-size: 5rem;
+          }
+          .banner form{
+              margin-top: 1.4rem;
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+          }
+      }
+      
+      @media screen and (min-width: 768px){
+          .navbar .container{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+          .search-input{
+              padding: 0.8rem 0;
+          }
+          .design-content{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 2rem;
+          }
+          .design-item{
+              margin: 0;
+          }
+          .blog-content{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 2rem;
+          }
+      }
+      
+      @media screen and (min-width: 992px){
+          .blog-content{
+              grid-template-columns: repeat(3, 1fr);
+          }
+          .about-content{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              column-gap: 3rem;
+              align-items: center;
+          }
+      }
+      
+      @media screen and (min-width: 1200px){
+          .design-content{
+              grid-template-columns: repeat(3, 1fr);
+          }
+      }
+      * {
+    /* Change your font family */
+    font-family: sans-serif;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 0.9em;
+    min-width: 600px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    width: 80%;
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+     
+
+
+    </style>      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travel Plan Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a href = "{% url 'homepage' %}" class = "navbar-brand">Explore.Selangor</a>
+          <div class = "navbar-nav">
+            <a href = "{% url 'homepage' %}">home</a>
+            <a href = "{% url 'placestay' %}">place to stay</a>
+            <a href = "{% url 'restaurant' %}">restaurant</a>
+            <a href = "{% url 'activities' %}">activities</a>
+            <a href = "{% url 'signup' %}">planning</a>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <center><h1 style="color: #fff;">Restaurant</h1></center>
+      <table class="content-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Signature</th>
+              <th>Rating</th>
+              <th>Delete?</th>
+           </tr>
+          </thead>
+          {% for restaurant in data %}
+          <tbody>
+              <tr>
+                  <td>{{ restaurant.restaurant_id }}</td>
+                  <td>{{ restaurant.restaurant_name }}</td>
+                  <td>{{ restaurant.restaurant_desc }}</td>
+                  <td>{{ restaurant.restaurant_signature }}</td>
+                  <td>{{ restaurant.restaurant_rating }}</td>
+                  <td><a href="delete_restaurant/{{data.restaurant_id}}">DELETE</a></td>
+              </tr>
+          {% empty %}
+              <tr>
+                  <td colspan="5">No restaurants available</td>
+              </tr>
+          {% endfor %}
+          
+          </tbody>
+      </table>
+<br>
+<br>
+<br>
+<!-- Button to toggle form visibility -->
+<button id="toggleFormBtn" style="font-size: 14px; padding: 8px 16px; margin-bottom: 10px;">Add Recommended Restaurant</button>
+
+<!-- Form for adding new restaurants (initially hidden) -->
+<div id="formContainer" style="display: none; text-align: center;">
+    <form id="restaurantForm" method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 10px;color: #fff;font-family: sans-serif;">
+            <label for="{{ form.restaurant_id.id_for_label }}">ID:</label>
+            {{ form.restaurant_id }}
+        </div>
+        <div style="margin-bottom: 10px;color: #fff;font-family: sans-serif;">
+            <label for="{{ form.restaurant_name.id_for_label }}">Name:</label>
+            {{ form.restaurant_name }}
+        </div>
+        <div style="margin-bottom: 10px;color: #fff;font-family: sans-serif;">
+            <label for="{{ form.restaurant_desc.id_for_label }}">Description:</label>
+            {{ form.restaurant_desc }}
+        </div>
+        <div style="margin-bottom: 10px;color: #fff;font-family: sans-serif;">
+            <label for="{{ form.restaurant_signature.id_for_label }}">Signature:</label>
+            {{ form.restaurant_signature }}
+        </div>
+        <div style="margin-bottom: 10px;color: #fff;font-family: sans-serif;">
+            <label for="{{ form.restaurant_rating.id_for_label }}">Rating:</label>
+            {{ form.restaurant_rating }}
+        </div>
+        <button type="submit" style="font-size: 14px; padding: 8px 16px;">Add Restaurant</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript to toggle form visibility and center the form
+    var formContainer = document.getElementById("formContainer");
+    var form = document.getElementById("restaurantForm");
+
+    document.getElementById("toggleFormBtn").addEventListener("click", function() {
+        formContainer.style.display = (formContainer.style.display === "none" || formContainer.style.display === "") ? "block" : "none";
+        if (formContainer.style.display === "block") {
+            // Center the form vertically on the screen
+            var windowHeight = window.innerHeight;
+            var formHeight = form.offsetHeight;
+            form.style.marginTop = ((windowHeight - formHeight) / 2) + "px";
+        }
+    });
+</script>
+
+
+    </header>
+    <!-- end of header -->
+    
+<br>
+    <!-- footer -->
+    <footer>
+      <div class = "social-links">
+        <a href = "#"><i class = "fab fa-facebook-f"></i></a>
+        <a href = "#"><i class = "fab fa-twitter"></i></a>
+        <a href = "#"><i class = "fab fa-instagram"></i></a>
+        <a href = "#"><i class = "fab fa-pinterest"></i></a>
+      </div>
+      <span>By Rinkishizika</span>
+    </footer>
+    <!-- end of footer -->
+    
+    
+  </body>
+</html>
